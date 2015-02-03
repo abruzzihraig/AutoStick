@@ -27,3 +27,20 @@ body {
     color: #000;
     padding: 0.2em 0;
 }
+
+.unit-origin {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 150px;
+    background: black;
+}
+.unit-tricky {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 20vw;
+    height: 25vw;
+    background: black;
+}
