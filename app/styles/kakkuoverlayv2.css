@@ -1,0 +1,29 @@
+/* Kakku Insertion Overlay CSS - Inserted into original page */
+
+iframe#_KA_frame {
+    width: 100px!important;
+    height: 213px!important;
+    -webkit-transition: background-color 0.2s ease-in-out;
+    -moz-transition: background-color 0.2s ease-in-out;
+    -ms-transition: background-color 0.2s ease-in-out;
+    -o-transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
+}
+
+@media only screen and (max-width: 640px) {
+    iframe#_KA_frame {
+        width: 70px!important;
+        height: 145px!important;
+    }
+
+/*  #character-container a{
+        padding:5px;
+    }*/
+}
+
+iframe#_KA_frame.active {
+    width: 100%!important;
+    height: 100%!important;
+/*  background-color:#ccc!important;
+    background-color:rgba(0,0,0,0.6)!important;*/
+}
