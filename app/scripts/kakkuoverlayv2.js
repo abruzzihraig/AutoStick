@@ -49,8 +49,7 @@ window._kakkuoverlay = window._kakkuoverlay || {};
     kao.clickfunc = function() {
         var iframe = document.getElementById('_KA_frame');
         var e = iframe.contentWindow.document.getElementById('_KA_link');
-        var c = iframe.contentWindow.document.getElementById('_KA_closer');
-        e.onclick = c.onclick = function(e) {
+        e.onclick = function(e) {
             if (kao.hasClass(iframe, 'active')) {
                 iframe.className = '';
                 iframe.contentWindow.document.getElementsByTagName('body')[0].className = '';

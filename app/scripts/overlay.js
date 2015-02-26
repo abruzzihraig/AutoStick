@@ -11,7 +11,8 @@ window._kakku.overlayJS = "scripts/kakkuoverlayv2.js";
 window._kakku.overlayCSS = "styles/kakkuoverlayv2.css";
 window._kakku.overlayInnerJS = "scripts/kakkuoverlayinnerv1.js";
 window._kakku.overlayInnerCSS = "styles/kakkuoverlayinnerv2.css";
-window._kakku.template = "<div id=\"_KA_closer\"></div><div class=\"_KA_cirle\"></div><div id=\"character-container\"><a href=\"#\"  id=\"_KA_link\"><div><!-- --></div></a></div><a href=\"http://test1.kakkuteam.co/stadiumapp/exit.html\" class=\"_KA_link1\" target=\"_blank\"><span></span> Map</a><a href=\"http://test1.kakkuteam.co/stadiumapp/nearby.html\" class=\"_KA_link2\" target=\"_blank\"><span></span> Shops</a><a href=\"http://test1.kakkuteam.co/stadiumapp/\" class=\"_KA_link3\" target=\"_blank\"><span></span> Home</a>";
+window._kakku.template = "<div id=\"character-container\"><a href=\"http://friendshop.tidal.ninja/#/stadium\"  id=\"_KA_link\"></a></div>";
+window._kakku.transparentDelay = 5000;
 
 // target=\"_blank\" "+window._kakku.destination+" <div id=\"closer\"><a href=\"#\">X</a></div><div
 
@@ -93,7 +94,9 @@ window._kakku.template = "<div id=\"_KA_closer\"></div><div class=\"_KA_cirle\">
         ka.doc.body.appendChild(style);
 
         // Inject resonspive img styles to iframe head
-        var css = '#character-container a div{background-image:url("' + ka.assets + ka.image + '_1.gif");} @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi){#character-container a div{background-image:url("' + ka.assets + ka.image + '_1.gif");}} @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 216dpi){#character-container a div{background-image:url("' + ka.assets + ka.image + '_1.gif");}}';
+        var staticCSS = '#character-container a{background-image:url("' + ka.assets + ka.image + '_1.gif");} @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi){#character-container a{background-image:url("' + ka.assets + ka.image + '_1.gif");}} @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 216dpi){#character-container a{background-image:url("' + ka.assets + ka.image + '_1.gif");}}';
+        var activeCSS = '.active #character-container a{background-image:url("' + ka.assets + ka.image + '_2.gif");} @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi){.active #character-container a{background-image:url("' + ka.assets + ka.image + '_2.gif");}} @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 216dpi){.active #character-container a{background-image:url("' + ka.assets + ka.image + '_2.gif");}}';
+        var css = staticCSS + activeCSS;
         style = document.createElement('style');
         style.type = 'text/css';
         if (style.styleSheet) {
@@ -102,6 +105,14 @@ window._kakku.template = "<div id=\"_KA_closer\"></div><div class=\"_KA_cirle\">
             style.appendChild(document.createTextNode(css));
         }
         ka.doc.body.appendChild(style);
+
+        ka.transparent();
+    };
+
+    ka.transparent = function() {
+        setTimeout(function() {
+            ka.iframe.contentWindow.document.getElementById('_KA_link').className += ' transparent';
+        }, ka.transparentDelay);
     };
 
     ka.load();
