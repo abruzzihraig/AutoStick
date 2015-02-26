@@ -4,15 +4,13 @@ window._kakku = window._kakku || {};
 // window._kakku.assets = "http://jp-kiss-dev.s3-website-ap-northeast-1.amazonaws.com/default/assets/";
 window._kakku.assets = ""
 window._kakku.destination = "http://friendshop.tidal.ninja/#/stadium";
-// window._kakku.image = "Hawk_8bit";
-// window._kakku.image = "images/shopping-bag/bag";
-window._kakku.image = "images/baseball-guy/baseball";
+window._kakku.image = "images/shopping-bag/bag";
 window._kakku.overlayJS = "scripts/kakkuoverlayv2.js";
 window._kakku.overlayCSS = "styles/kakkuoverlayv2.css";
 window._kakku.overlayInnerJS = "scripts/kakkuoverlayinnerv1.js";
 window._kakku.overlayInnerCSS = "styles/kakkuoverlayinnerv2.css";
 window._kakku.template = '<div id="character-container"><a href="' + window._kakku.destination + '" id="_KA_link"></a></div>';
-window._kakku.transparentDelay = 3000;
+window._kakku.transparentDelay = 5000;
 
 // target=\"_blank\" "+window._kakku.destination+" <div id=\"closer\"><a href=\"#\">X</a></div><div
 
