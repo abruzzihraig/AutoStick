@@ -6,6 +6,13 @@ window._kakkuoverlay = window._kakkuoverlay || {};
 
     // one more global for the overlay
     var kao = namespace._kakkuoverlay = namespace._kakkuoverlay || {};
+    kao.transparentDelay = window._kakku.transparentDelay;
+    kao.templateUrl = window._kakku.templateUrl;
+
+    var iframe = document.getElementById('_KA_frame');
+    var body = iframe.contentWindow.document.getElementsByTagName('body')[0];
+    var link = iframe.contentWindow.document.getElementById('_KA_link');
+    var transparentTimer = null;
 
     function getStyle(el, cssprop) {
         if (el.currentStyle) //IE
@@ -37,34 +44,56 @@ window._kakkuoverlay = window._kakkuoverlay || {};
     }
 
     function setZ() {
-        document.getElementById('_KA_frame').style.zIndex = kao.maxZ() + 1;
+        iframe.style.zIndex = kao.maxZ() + 1;
     }
 
     setZ();
 
-    kao.hasClass = function(e, c) {
-        return (' ' + e.className + ' ').indexOf(' ' + c + ' ') > -1;
-    }
+    kao.hasClass = (typeof document.documentElement.classList == "undefined") ?
+        function(el, clss) {
+            return el.className && new RegExp("(^|\\s)" +
+                   clss + "(\\s|$)").test(el.className);
+        } :
+        function(el, clss) {
+            return el.classList.contains(clss);
+        };
 
-    kao.clickfunc = function() {
-        var iframe = document.getElementById('_KA_frame');
-        var e = iframe.contentWindow.document.getElementById('_KA_link');
-        e.onclick = function(e) {
-            if (kao.hasClass(iframe, 'active')) {
-                iframe.className = '';
-                iframe.contentWindow.document.getElementsByTagName('body')[0].className = '';
+    kao.addListener = function() {
+        link.onclick = function(e) {
+            clearTimeout(transparentTimer);
+            if (kao.hasClass(link, 'transparent')) {
+                link.className = '';
+                kao.transparent();
+            } else if (kao.hasClass(body, 'active')) {
+                window.location = kao.templateUrl;
             } else {
-                iframe.className += ' active';
-                iframe.contentWindow.document.getElementsByTagName('body')[0].className += ' active';
+                body.className = 'active';
             }
             e.preventDefault();
         };
+        link.onmouseenter = function(e) {
+            clearTimeout(transparentTimer);
+            if (kao.hasClass(link, 'transparent')) {
+                link.className = '';
+            }
+            e.preventDefault();
+        };
+        link.onmouseleave = function(e) {
+            kao.transparent();
+        };
     }
 
-    kao.clickfunc();
+    kao.transparent = function() {
+        transparentTimer = setTimeout(function() {
+            body.className = '';
+            link.className = 'transparent';
+        }, kao.transparentDelay);
+    };
 
     kao.polling = setInterval(function() {
         setZ();
     }, 3000);
 
+    kao.transparent();
+    kao.addListener();
 })(window);

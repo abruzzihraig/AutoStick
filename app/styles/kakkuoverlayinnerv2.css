@@ -51,10 +51,6 @@ a {
     opacity: 0.3;
 }
 
-#character-container a:hover {
-    opacity: 0.8;
-}
-
 body.active #character-container {
     max-width: 203px;
 }

@@ -5,14 +5,16 @@ window._kakku = window._kakku || {};
 window._kakku.assets = ""
 window._kakku.destination = "http://www.softbankhawks.co.jp/index.php";
 // window._kakku.image = "Hawk_8bit";
-window._kakku.image = "images/shopping-bag/bag";
+// window._kakku.image = "images/shopping-bag/bag";
+window._kakku.image = "images/baseball-guy/baseball";
 
 window._kakku.overlayJS = "scripts/kakkuoverlayv2.js";
 window._kakku.overlayCSS = "styles/kakkuoverlayv2.css";
 window._kakku.overlayInnerJS = "scripts/kakkuoverlayinnerv1.js";
 window._kakku.overlayInnerCSS = "styles/kakkuoverlayinnerv2.css";
+window._kakku.templateUrl = "http://friendshop.tidal.ninja/#/stadium";
 window._kakku.template = "<div id=\"character-container\"><a href=\"http://friendshop.tidal.ninja/#/stadium\"  id=\"_KA_link\"></a></div>";
-window._kakku.transparentDelay = 5000;
+window._kakku.transparentDelay = 3000;
 
 // target=\"_blank\" "+window._kakku.destination+" <div id=\"closer\"><a href=\"#\">X</a></div><div
 
@@ -105,15 +107,9 @@ window._kakku.transparentDelay = 5000;
             style.appendChild(document.createTextNode(css));
         }
         ka.doc.body.appendChild(style);
-
-        ka.transparent();
     };
 
-    ka.transparent = function() {
-        setTimeout(function() {
-            ka.iframe.contentWindow.document.getElementById('_KA_link').className += ' transparent';
-        }, ka.transparentDelay);
-    };
+
 
     ka.load();
 
