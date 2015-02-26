@@ -4,12 +4,12 @@ window._kakku = window._kakku || {};
 // window._kakku.assets = "http://jp-kiss-dev.s3-website-ap-northeast-1.amazonaws.com/default/assets/";
 window._kakku.assets = ""
 window._kakku.destination = "http://friendshop.tidal.ninja/#/stadium";
-window._kakku.image = "images/shopping-bag/bag";
+window._kakku.image = "images/baseball-guy/baseball";
 window._kakku.overlayJS = "scripts/kakkuoverlayv2.js";
 window._kakku.overlayCSS = "styles/kakkuoverlayv2.css";
 window._kakku.overlayInnerJS = "scripts/kakkuoverlayinnerv1.js";
 window._kakku.overlayInnerCSS = "styles/kakkuoverlayinnerv2.css";
-window._kakku.template = '<div id="character-container"><a href="' + window._kakku.destination + '" id="_KA_link"></a></div>';
+window._kakku.template = '<div id="character-container"><a href="' + window._kakku.destination + '" id="_KA_link"></a><img style="display:none" src="' + window._kakku.image + '_1.gif' + '"/><img style="display:none" src="' + window._kakku.image + '_2.gif' + '"/></div>';
 window._kakku.transparentDelay = 5000;
 
 // target=\"_blank\" "+window._kakku.destination+" <div id=\"closer\"><a href=\"#\">X</a></div><div
@@ -48,7 +48,7 @@ window._kakku.transparentDelay = 5000;
             // Create iframe and append to body
             var iframe = document.createElement('iframe');
 
-            iframe.setAttribute("style", "display:block!important;" + "position:fixed!important;" + "right:0px!important;" + "bottom:0px!important;" + "width:100px;" + "height:213px;" + "border:0!important;" + "overflow:hidden!important;" + "background-color:transparent;");
+            iframe.setAttribute("style", "display:block!important;" + "position:fixed!important;" + "right:0px!important;" + "bottom:0px!important;" + "width:103px;" + "height:250px;" + "border:0!important;" + "overflow:hidden!important;" + "background-color:transparent;");
             iframe.setAttribute('frameBorder', '0');
             iframe.setAttribute('border', '0');
             iframe.setAttribute('allowTransparency', 'true');
@@ -92,8 +92,8 @@ window._kakku.transparentDelay = 5000;
         ka.doc.body.appendChild(style);
 
         // Inject resonspive img styles to iframe head
-        var staticCSS = '#character-container a{background-image:url("' + ka.assets + ka.image + '_1.gif");} @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi){#character-container a{background-image:url("' + ka.assets + ka.image + '_1.gif");}} @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 216dpi){#character-container a{background-image:url("' + ka.assets + ka.image + '_1.gif");}}';
-        var activeCSS = '.active #character-container a{background-image:url("' + ka.assets + ka.image + '_2.gif");} @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi){.active #character-container a{background-image:url("' + ka.assets + ka.image + '_2.gif");}} @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 216dpi){.active #character-container a{background-image:url("' + ka.assets + ka.image + '_2.gif");}}';
+        var staticCSS = '#_KA_link{background-image:url("' + ka.assets + ka.image + '_1.gif");} @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi){#_KA_link{background-image:url("' + ka.assets + ka.image + '_1.gif");}} @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 216dpi){#_KA_link{background-image:url("' + ka.assets + ka.image + '_1.gif");}}';
+        var activeCSS = '.active #_KA_link{background-image:url("' + ka.assets + ka.image + '_2.gif");} @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 144dpi){.active #_KA_link{background-image:url("' + ka.assets + ka.image + '_2.gif");}} @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 216dpi){.active #_KA_link{background-image:url("' + ka.assets + ka.image + '_2.gif");}}';
         var css = staticCSS + activeCSS;
         style = document.createElement('style');
         style.type = 'text/css';
