@@ -17,9 +17,7 @@ a {
 
 #character-container {
     width: 100%;
-    max-width: 103px;
     height: 100%;
-    max-height: 250px;
     position: fixed;
     bottom: 0;
     right: 0;
@@ -52,10 +50,6 @@ a {
 
 #_KA_link.transparent {
     opacity: 0.3;
-}
-
-body.active #character-container {
-    max-width: 206px;
 }
 
 

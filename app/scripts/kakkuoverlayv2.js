@@ -94,6 +94,21 @@ window._kakkuoverlay = window._kakkuoverlay || {};
         setZ();
     }, 3000);
 
+    kao.calInsertionSize = function() {
+        var deviceWidth = Math.min(window.screen.width, window.screen.availWidth, window.innerWidth)
+        var deviceHeight = Math.min(window.screen.height, window.screen.availHeight, window.innerHeight);
+        var pageWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var pageHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        var expectImgWidth = 70;
+        var expectImgHeight = 165;
+        var finalWidth = pageWidth * expectImgWidth / deviceWidth || expectImgWidth;
+        var finalHeight = pageHeight * expectImgHeight / deviceHeight || expectImgHeight;
+
+        iframe.style.width = finalWidth + 'px';
+        iframe.style.height = finalHeight + 'px';
+    }
+
     kao.transparent();
     kao.addListener();
+    kao.calInsertionSize();
 })(window);

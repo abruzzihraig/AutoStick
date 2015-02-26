@@ -1,8 +1,6 @@
 /* Kakku Insertion Overlay CSS - Inserted into original page */
 
 iframe#_KA_frame {
-    width: 100px!important;
-    height: 213px!important;
     -webkit-transition: background-color 0.2s ease-in-out;
     -moz-transition: background-color 0.2s ease-in-out;
     -ms-transition: background-color 0.2s ease-in-out;
@@ -13,9 +11,9 @@ iframe#_KA_frame {
 @media only screen and (max-width: 640px) {
     iframe#_KA_frame {
         width: 70px!important;
-        height: 145px!important;
+        height: 165px!important;
     }
-
+}
 
 iframe#_KA_frame.active {
     width: 100%!important;

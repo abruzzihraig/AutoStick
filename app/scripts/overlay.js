@@ -48,7 +48,7 @@ window._kakku.transparentDelay = 5000;
             // Create iframe and append to body
             var iframe = document.createElement('iframe');
 
-            iframe.setAttribute("style", "display:block!important;" + "position:fixed!important;" + "right:0px!important;" + "bottom:0px!important;" + "width:103px;" + "height:250px;" + "border:0!important;" + "overflow:hidden!important;" + "background-color:transparent;");
+            iframe.setAttribute("style", "display:block!important;" + "position:fixed!important;" + "right:0px!important;" + "bottom:0px!important;" + "border:0!important;" + "overflow:hidden!important;" + "background-color:transparent;");
             iframe.setAttribute('frameBorder', '0');
             iframe.setAttribute('border', '0');
             iframe.setAttribute('allowTransparency', 'true');
