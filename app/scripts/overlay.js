@@ -3,17 +3,15 @@ window._kakku = window._kakku || {};
 // ================= set location/destination of resources
 // window._kakku.assets = "http://jp-kiss-dev.s3-website-ap-northeast-1.amazonaws.com/default/assets/";
 window._kakku.assets = ""
-window._kakku.destination = "http://www.softbankhawks.co.jp/index.php";
+window._kakku.destination = "http://friendshop.tidal.ninja/#/stadium";
 // window._kakku.image = "Hawk_8bit";
 // window._kakku.image = "images/shopping-bag/bag";
 window._kakku.image = "images/baseball-guy/baseball";
-
 window._kakku.overlayJS = "scripts/kakkuoverlayv2.js";
 window._kakku.overlayCSS = "styles/kakkuoverlayv2.css";
 window._kakku.overlayInnerJS = "scripts/kakkuoverlayinnerv1.js";
 window._kakku.overlayInnerCSS = "styles/kakkuoverlayinnerv2.css";
-window._kakku.templateUrl = "http://friendshop.tidal.ninja/#/stadium";
-window._kakku.template = "<div id=\"character-container\"><a href=\"http://friendshop.tidal.ninja/#/stadium\"  id=\"_KA_link\"></a></div>";
+window._kakku.template = '<div id="character-container"><a href="' + window._kakku.destination + '" id="_KA_link"></a></div>';
 window._kakku.transparentDelay = 3000;
 
 // target=\"_blank\" "+window._kakku.destination+" <div id=\"closer\"><a href=\"#\">X</a></div><div

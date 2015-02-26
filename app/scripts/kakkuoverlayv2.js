@@ -7,7 +7,7 @@ window._kakkuoverlay = window._kakkuoverlay || {};
     // one more global for the overlay
     var kao = namespace._kakkuoverlay = namespace._kakkuoverlay || {};
     kao.transparentDelay = window._kakku.transparentDelay;
-    kao.templateUrl = window._kakku.templateUrl;
+    kao.destination = window._kakku.destination;
 
     var iframe = document.getElementById('_KA_frame');
     var body = iframe.contentWindow.document.getElementsByTagName('body')[0];
@@ -61,11 +61,11 @@ window._kakkuoverlay = window._kakkuoverlay || {};
     kao.addListener = function() {
         link.onclick = function(e) {
             clearTimeout(transparentTimer);
+            kao.transparent();
             if (kao.hasClass(link, 'transparent')) {
                 link.className = '';
-                kao.transparent();
             } else if (kao.hasClass(body, 'active')) {
-                window.location = kao.templateUrl;
+                window.location = kao.destination;
             } else {
                 body.className = 'active';
             }
